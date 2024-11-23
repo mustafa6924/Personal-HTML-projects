@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amb Farm Registration</title>
+  </head>
+  <body>
+    <a href="index.html">Homepage </a>
+    <a href="login.html"> Login</a>
+
+    <h1>Register a new account</h1>
+
+    <form>
+      <label for="firstname">First Name: </label>
+      <input type="text" id="firstname" />
+      <br /><br />
+      <label for="lastname">Last Name: </label>
+      <input type="text" id="lastname" />
+      <br /><br />
+      <label for="dateofbirth">Date of Birth: </label>
+      <input type="date" id="dateofbirth" />
+      <br /><br />
+      <label for="username">Username: </label>
+      <input type="text" id="username" />
+      <br /><br />
+      <label for="password">Password: </label>
+      <input type="password" id="password" />
+      <br /><br /><br />
+      <button type="button" id="registersubmitbutton">Submit</button>
+    </form>
+
+    <script>
+      document
+        .getElementById("registersubmitbutton")
+        .addEventListener("click", function () {
+          const firstname = document.getElementById("firstname").value;
+          const lastname = document.getElementById("lastname").value;
+          const dateofbirth = document.getElementById("dateofbirth").value;
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (firstname && lastname && dateofbirth && username && password) {
+            console.log("Registered successfully with username: ", username);
+            alert("Account registered successfully!");
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+            localStorage.setItem("firstname", firstname);
+            localStorage.setItem("lastname", lastname);
+          } else {
+            alert("Error registering account! Please fill out all fields");
+          }
+        });
+    </script>
+  </body>
+</html>

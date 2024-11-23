@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Amb Farm Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+  </head>
+  <body>
+    <a href="index.html">Homepage </a>
+    <a href="register.html"> Register</a>
+    <h1>Login Page</h1>
+    <h2>Enter your details</h2>
+    <form>
+      <label for="username">Enter username: </label>
+      <input type="text" id="username" />
+      <br /><br />
+      <label for="password">Enter password: </label>
+      <input type="password" id="password" />
+      <br /><br /><br />
+      <button type="button" id="loginbutton">Login</button>
+    </form>
+    <script>
+      document
+        .getElementById("loginbutton")
+        .addEventListener("click", function () {
+          const loginusername = document.getElementById("username").value;
+          const loginpassword = document.getElementById("password").value;
+
+          const storedusername = localStorage.getItem("username");
+          const storedpassword = localStorage.getItem("password");
+          const storedfirstname = localStorage.getItem("firstname");
+          const storedlastname = localStorage.getItem("lastname");
+
+          if (
+            loginusername === storedusername &&
+            loginpassword === storedpassword
+          ) {
+            console.log("Login successful");
+            console.log(localStorage.getItem("username"));
+            console.log(localStorage.getItem("password"));
+            alert(
+              "Login successful! Hello, " +
+                storedfirstname +
+                " " +
+                storedlastname
+            );
+          } else {
+            console.log("Invaoid username or password entered");
+            alert("Invalid username or password");
+          }
+        });
+    </script>
+  </body>
+</html>

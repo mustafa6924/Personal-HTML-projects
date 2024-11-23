@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        margin-top: 70px;
+        background: #094d00;
+        color: rgb(255, 255, 255);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="display-4 text center">Currency Convert</h1>
+          <form>
+            <div class="form-group">
+              <input
+                id="pkrinput"
+                type="number"
+                class="form-control form-control-lg"
+                placeholder="Enter PKR amount..."
+              />
+            </div>
+          </form>
+          <div id="output">
+            <div class="card bg-primary mb-2">
+              <div class="card-block">
+                <h4>USD:</h4>
+                <div id="usdoutput"></div>
+              </div>
+            </div>
+
+            <div class="card bg-success mb-2">
+              <div class="card-block">
+                <h4>CAD:</h4>
+                <div id="cadoutput"></div>
+              </div>
+            </div>
+
+            <div class="card bg-danger mb-2">
+              <div class="card-block">
+                <h4>GBP:</h4>
+                <div id="gbpoutput"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("pkrinput")
+        .addEventListener("input", function () {
+          let pkr = event.target.value;
+          document.getElementById("usdoutput").innerHTML = pkr / 280.55;
+          document.getElementById("cadoutput").innerHTML = pkr / 206.15;
+          document.getElementById("gbpoutput").innerHTML = pkr / 358.5;
+        });
+    </script>
+  </body>
+</html>
